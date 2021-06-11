@@ -21,7 +21,6 @@ func _process(delta):
 		$"Player 1".visible = false;
 		$"Player 2".visible = false;
 		# Enable Rigid Body
-		
 		join = join_scene.instance();
 		join.position_from_nodes($"Player 1", $"Player 2");
 		join.get_node("Player1").linear_velocity = $"Player 1".velocity;
@@ -35,8 +34,9 @@ func _process(delta):
 		$"Player 1".visible = true;
 		$"Player 2".visible = true;
 		
-		$"Player 1".velocity = join.get_node("Player1").linear_velocity;
-		$"Player 2".velocity = join.get_node("Player2").linear_velocity;
+		$"Player 1".move_and_slide(join.get_node("Player1").linear_velocity, Vector2.UP);
+		$"Player 1".move_and_slide(join.get_node("Player1").linear_velocity, Vector2.UP);
+		#$"Player 2".velocity = join.get_node("Player2").linear_velocity;
 		
 		join.visible = false;
 		join.queue_free();
