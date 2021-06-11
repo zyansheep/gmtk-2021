@@ -23,6 +23,7 @@ texture = ExtResource( 1 )
 position = Vector2( 269.104, 125.017 )
 collision_layer = 2
 collision_mask = 2
+gravity_scale = 6.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -42,6 +43,7 @@ node_b = NodePath("../../Player2")
 position = Vector2( 543.505, 432.261 )
 collision_layer = 2
 collision_mask = 2
+gravity_scale = 6.0
 __meta__ = {
 "_edit_group_": true
 }
