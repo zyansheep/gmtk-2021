@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dressPuritan.png-2e4809f8ded3f9abfd6c826ee5b1e2b7.stex"
+path="res://.import/PlayerOne.png-05ac5ed8d58753f1e9be9719d0efcc3a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dressPuritan.png"
-dest_files=[ "res://.import/dressPuritan.png-2e4809f8ded3f9abfd6c826ee5b1e2b7.stex" ]
+source_file="res://Assets/PlayerOne.png"
+dest_files=[ "res://.import/PlayerOne.png-05ac5ed8d58753f1e9be9719d0efcc3a.stex" ]
 
 [params]
 

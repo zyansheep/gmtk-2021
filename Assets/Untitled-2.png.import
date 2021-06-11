@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dressPuritan.png-2e4809f8ded3f9abfd6c826ee5b1e2b7.stex"
+path="res://.import/Untitled-2.png-638f60094831d5c2a3881c419f07f4e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dressPuritan.png"
-dest_files=[ "res://.import/dressPuritan.png-2e4809f8ded3f9abfd6c826ee5b1e2b7.stex" ]
+source_file="res://Assets/Untitled-2.png"
+dest_files=[ "res://.import/Untitled-2.png-638f60094831d5c2a3881c419f07f4e0.stex" ]
 
 [params]
 
