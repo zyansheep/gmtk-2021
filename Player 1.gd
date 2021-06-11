@@ -11,11 +11,15 @@ func get_input():
 	velocity.x = 0
 	var right = Input.is_action_pressed('game_move_right')
 	var left = Input.is_action_pressed('game_move_left')
-
+	var jump = Input.is_action_pressed("ui_up")
+	
 	if right:
 		velocity.x += run_speed
 	if left:
 		velocity.x -= run_speed
+	if jump and is_on_floor():
+		jumping = true
+		velocity.y = jump_speed
 
 func _physics_process(delta):
 	get_input()
