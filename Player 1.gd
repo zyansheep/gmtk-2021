@@ -11,6 +11,7 @@ const MAX_SPEED = 100
 const ACCELERATION = 1000
 const DECELERATION = 7
 const AIR_DECELERATION = 1;
+const ROTATION_SPEED = 0.1
 
 const JUMP_FORCE = 200
 const GRAVITY = 400
@@ -37,7 +38,7 @@ func _process(delta):
 		x_direction = 1;
 	var jump = Input.is_action_pressed(jump_action) && is_on_floor();
 	
-	var dir = sign(velocity.x);
+	#var dir = sign(velocity.x);
 	# Movement Acceleration
 	if x_direction != null:
 		velocity.x += x_direction * ACCELERATION * delta;
@@ -49,6 +50,7 @@ func _process(delta):
 	
 	# Movement Clamp
 	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
+	rotation += velocity.x * ROTATION_SPEED * delta;
 	
 	# Jumping
 	if jump:
