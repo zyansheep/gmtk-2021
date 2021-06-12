@@ -1,17 +1,12 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 
 var join;
 var join_scene = preload("res://Player Join.tscn");
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#$"Player Join".visible = false;
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

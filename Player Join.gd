@@ -12,8 +12,8 @@ func _ready():
 	
 
 func position_from_nodes(node1: KinematicBody2D, node2: KinematicBody2D):
-	$Player1.position = node1.position;
-	$Player2.position = node2.position;
+	$Player1.position = node1.position
+	$Player2.position = node2.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
