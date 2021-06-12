@@ -5,6 +5,8 @@ extends RichTextLabel
 func _on_Button_pressed():
 	if self.name == "Start":
 		get_tree().change_scene("res://Levels/Level1.tscn")
+	elif self.name == "Resume":
+		get_tree().paused = false
 	else:
 		get_tree().quit()
 
