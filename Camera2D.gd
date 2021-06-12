@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var player_position_1 = $"../Player 1".position;
 	var player_position_2 = $"../Player 2".position;
 	

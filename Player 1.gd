@@ -1,6 +1,11 @@
 extends KinematicBody2D
 
+export(String) var left_action = "game_move_left";
+export(String) var right_action = "game_move_right";
+export(String) var jump_action = "game_move_up";
+
 var velocity = Vector2()
+var speed_x = 0
 
 const MAX_SPEED = 100
 const ACCELERATION = 1000
@@ -26,22 +31,24 @@ func _ready():
 func _process(delta):
 	var x_direction = null;
 	
-	if Input.is_action_pressed("game_move_left") && is_on_floor():
+	if Input.is_action_pressed(left_action):
 		x_direction = -1;
-	if Input.is_action_pressed("game_move_right") && is_on_floor():
+	if Input.is_action_pressed(right_action):
 		x_direction = 1;
-	var jump = Input.is_action_pressed("game_move_up") && is_on_floor();
+	var jump = Input.is_action_pressed(jump_action) && is_on_floor();
 	
+	var dir = sign(velocity.x);
 	# Movement Acceleration
-	if x_direction:
-		velocity.x += ACCELERATION * delta * x_direction;
+	if x_direction != null:
+		velocity.x += x_direction * ACCELERATION * delta;
 	# Movement Deceleration
 	if is_on_floor():
-		velocity.x -= DECELERATION * delta;
+		velocity.x -= dir * DECELERATION * delta;
 	else:
-		velocity.x -= AIR_DECELERATION * delta;
+		velocity.x -= dir * AIR_DECELERATION * delta;
+	
 	# Movement Clamp
-	velocity.x = clamp(velocity.x, 0, MAX_SPEED)
+	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
 	
 	# Jumping
 	if jump:

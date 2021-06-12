@@ -16,7 +16,7 @@ func position_from_nodes(node1: KinematicBody2D, node2: KinematicBody2D):
 	$Player2.position = node2.position;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#$center.global_position = position;
 	pass
 	
