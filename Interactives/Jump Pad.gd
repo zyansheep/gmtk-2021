@@ -19,4 +19,4 @@ func _ready():
 func _on_Jump_Pad_body_entered(body: RigidBody2D):
 	if body:
 		print(body.name)
-		body.apply_impulse(Vector2(), Vector2(0, -1000))
+		body.apply_impulse(Vector2(), Vector2(0, -100))

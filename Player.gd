@@ -13,7 +13,7 @@ const DECELERATION = 7
 const AIR_DECELERATION = 1;
 const ROTATION_SPEED = 0.1
 
-const JUMP_FORCE = 200
+const JUMP_FORCE = 400
 const GRAVITY = 400
 const MAX_FALL_SPEED = 1000
 

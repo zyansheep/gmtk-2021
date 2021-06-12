@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Interactives/Sign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player 2.tscn" type="PackedScene" id=2]
@@ -9,56 +9,13 @@
 [ext_resource path="res://Player 1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Interactives/Jump Pad.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Assets/anchorpad.png" type="Texture" id=10]
-[ext_resource path="res://Interactives/Anchor Pad.gd" type="Script" id=11]
+[ext_resource path="res://Interactives/Anchor Pad.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/Level3.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( -7.55099, 59.4641, 7.55099, -59.4641, -856.255, 91.1364, -97.5182, 7.66728, 97.5182, -7.66728, -569.332, 444.015, -90.3025, -1.7677, 90.3025, 1.7677, -247.268, 64.7704, -89.9759, -68.9535, 89.9759, 68.9535, -35.3625, 369.175, -97.8366, 51.2605, 97.8366, -51.2605, 295.951, 365.811, -11.3265, 61.3518, 11.3265, -61.3518, 524.674, 5.06671, 117.898, 2.71223, -117.898, -2.71223, 473.38, -185.817, 120.816, -61.3518, -120.816, 61.3518, 144.859, -275.681, -30.1606, -21.4299, 30.1606, 21.4299, 70.2935, -49.1515, -42.463, 4.36535, 42.463, -4.36535, 166.569, -13.2842, -10.3181, 20.6362, 10.3181, -20.6362, 245.854, -44.4321, 15.4772, 18.2551, -15.4772, -18.2551, 260.012, -122.774, 36.1134, -11.9055, -36.1134, 11.9055, 166.424, -152.578 )
 }
-
-[sub_resource type="Animation" id=5]
-resource_name = "Joined"
-tracks/0/type = "value"
-tracks/0/path = NodePath("../Jump Pad/Particles2D:process_material:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.219608, 1, 0, 1 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "Not Joined"
-tracks/0/type = "value"
-tracks/0/path = NodePath("../Jump Pad/Particles2D:process_material:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="ParticlesMaterial" id=3]
-emission_shape = 2
-emission_box_extents = Vector3( 20, 1, 1 )
-flag_disable_z = true
-spread = 40.0
-gravity = Vector3( 0, -40, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-color = Color( 0.219608, 1, 0, 1 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 21.2849, 6.70926 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
@@ -90,41 +47,11 @@ Text = "Underground..."
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( -802.811, 202.094 )
+next_level = ExtResource( 11 )
 
 [node name="Background" parent="." instance=ExtResource( 8 )]
 
 [node name="Jump Pad" parent="." instance=ExtResource( 9 )]
 position = Vector2( -450.779, -178.935 )
 
-[node name="Anchor Pad" type="Area2D" parent="."]
-position = Vector2( -992.085, -178.849 )
-collision_layer = 3
-collision_mask = 3
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Anchor Pad"]
-autoplay = "Not Joined"
-anims/Joined = SubResource( 5 )
-"anims/Not Joined" = SubResource( 2 )
-
-[node name="Particles2D" type="Particles2D" parent="Anchor Pad"]
-visible = false
-position = Vector2( 0, 5 )
-amount = 50
-process_material = SubResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor Pad"]
-shape = SubResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Anchor Pad"]
-position = Vector2( -1.41263e-05, -1.50169 )
-scale = Vector2( 2.64248, 1 )
-texture = ExtResource( 10 )
-[connection signal="body_entered" from="Anchor Pad" to="Anchor Pad" method="_on_Anchor_Pad_body_entered"]
-[connection signal="body_exited" from="Anchor Pad" to="Anchor Pad" method="_on_Anchor_Pad_body_exited"]
+[node name="Anchor Pad" parent="." instance=ExtResource( 10 )]

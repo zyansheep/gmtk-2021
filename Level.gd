@@ -38,7 +38,7 @@ func _process(_delta):
 		$"Player 2".visible = true;
 		
 		$"Player 1".next_velocity = join.get_node("Player1").linear_velocity;
-		$"Player 2".velocity = join.get_node("Player2").linear_velocity;
+		$"Player 2".next_velocity = join.get_node("Player2").linear_velocity;
 		
 		join.visible = false;
 		join.queue_free();
