@@ -21,4 +21,4 @@ func _on_Jump_Pad_body_entered(body: RigidBody2D):
 		print(body.name)
 		
 		#body.add_central_force(Vector2(0, -100))
-		body.apply_central_impulse(Vector2(0, -50))
+		body.apply_central_impulse(Vector2(0, -100))
