@@ -6,6 +6,7 @@
 extents = Vector2( 18.0985, 3.44138 )
 
 [node name="OneWayPlatform" type="StaticBody2D"]
+collision_layer = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
