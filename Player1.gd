@@ -25,9 +25,9 @@ func _physics_process(delta):
 	if lock_position != null:
 		emit_signal("is_anchored", true)
 		position = lock_position;
-	if other_is_frozen:
-		gravity_scale = 0
-	else: gravity_scale = 6
+#	if other_is_frozen:
+#		gravity_scale = 0
+#	else: gravity_scale = 6
 
 
 func _on_Player2_is_anchored(value):
