@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Sign.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Interactives/Sign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player 1.gd" type="Script" id=2]
+[ext_resource path="res://Interactives/Checkpoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Camera2D.gd" type="Script" id=4]
-[ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://Levels/Level1.gd" type="Script" id=5]
 [ext_resource path="res://WorldMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/PlayerOne.png" type="Texture" id=7]
 [ext_resource path="res://Assets/PlayerTwo.png" type="Texture" id=8]
@@ -69,3 +70,6 @@ tile_data = PoolIntArray( -1310724, 3, 0, -1245188, 3, 65536, -1179652, 3, 65536
 [node name="Sign" parent="." instance=ExtResource( 1 )]
 position = Vector2( 187.737, -100.056 )
 Text = "Press <SPACE> to Anchor"
+
+[node name="Checkpoint" parent="." instance=ExtResource( 3 )]
+position = Vector2( -871.564, 121.865 )

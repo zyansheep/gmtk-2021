@@ -40,7 +40,7 @@ func _process(_delta):
 	var midpoint_dist = (player_position_1 - position)
 	var projectResolution=Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
 	var test_zoom = (midpoint_dist * 2 / projectResolution).length();
-	var test_zoom_2 = max(test_zoom + 0.4, 1);
+	var test_zoom_2 = max(test_zoom + 0.6, 1);
 	
 	zoom_target = Vector2(test_zoom_2, test_zoom_2);
 	pass
