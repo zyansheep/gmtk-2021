@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player Join.gd" type="Script" id=2]
 [ext_resource path="res://Assets/PlayerOne.png" type="Texture" id=4]
 [ext_resource path="res://Assets/PlayerTwo.png" type="Texture" id=5]
 
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 100.0
+rough = true
+
 [sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="PhysicsMaterial" id=4]
+friction = 100.0
+rough = true
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -22,6 +30,7 @@ texture = ExtResource( 1 )
 position = Vector2( 269.104, 125.017 )
 collision_layer = 2
 collision_mask = 2
+physics_material_override = SubResource( 3 )
 gravity_scale = 6.0
 __meta__ = {
 "_edit_group_": true
@@ -42,6 +51,7 @@ node_b = NodePath("../../Player2")
 position = Vector2( 543.505, 432.261 )
 collision_layer = 2
 collision_mask = 2
+physics_material_override = SubResource( 4 )
 gravity_scale = 6.0
 __meta__ = {
 "_edit_group_": true

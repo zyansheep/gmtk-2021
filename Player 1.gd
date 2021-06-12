@@ -9,11 +9,11 @@ var speed_x = 0
 
 const MAX_SPEED = 100
 const ACCELERATION = 1000
-const DECELERATION = 700
-const AIR_DECELERATION = 10;
+const DECELERATION = 7
+const AIR_DECELERATION = 1;
 
 const JUMP_FORCE = 200
-const GRAVITY = 500
+const GRAVITY = 400
 const MAX_FALL_SPEED = 1000
 
 var jump_count = 0
@@ -43,9 +43,9 @@ func _process(delta):
 		velocity.x += x_direction * ACCELERATION * delta;
 	# Movement Deceleration
 	if is_on_floor():
-		velocity.x -= dir * DECELERATION * delta;
+		velocity.x = lerp(velocity.x, 0, DECELERATION * delta);
 	else:
-		velocity.x -= dir * AIR_DECELERATION * delta;
+		velocity.x = lerp(velocity.x, 0, AIR_DECELERATION * delta);
 	
 	# Movement Clamp
 	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
