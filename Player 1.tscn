@@ -1,60 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/PlayerOne.png" type="Texture" id=2]
+[ext_resource path="res://Assets/light_texture.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-
-[sub_resource type="Animation" id=2]
-resource_name = "Anchored"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Icon:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 0, 0, 1 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "FreeRoam"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Icon:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Joined"
-length = 0.1
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Icon:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.054902, 1, 0, 1 ) ]
-}
 
 [node name="Player 1" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -63,15 +13,11 @@ __meta__ = {
 }
 
 [node name="Icon" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 z_index = -1
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "FreeRoam"
-anims/Anchored = SubResource( 2 )
-anims/FreeRoam = SubResource( 3 )
-anims/Joined = SubResource( 4 )
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )

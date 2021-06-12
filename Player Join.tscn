@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/PlayerOneGrayScale.png" type="Texture" id=1]
 [ext_resource path="res://Player Join.gd" type="Script" id=2]
-[ext_resource path="res://Assets/PlayerTwoGrayScale.png" type="Texture" id=3]
+[ext_resource path="res://Assets/PlayerTwoJoined.png" type="Texture" id=3]
 [ext_resource path="res://Assets/light_texture.png" type="Texture" id=4]
 [ext_resource path="res://Player1.gd" type="Script" id=5]
 
@@ -61,7 +61,6 @@ __meta__ = {
 }
 
 [node name="Icon2" type="Sprite" parent="Player2"]
-modulate = Color( 1, 0.74902, 0, 1 )
 texture = ExtResource( 3 )
 
 [node name="Collision2" type="CollisionShape2D" parent="Player2"]
