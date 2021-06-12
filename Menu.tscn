@@ -31,9 +31,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" type="Button" parent="Start"]
-margin_left = 8.0
-margin_right = 120.0
+[node name="Button" type="Button" parent="Start"]
+anchor_left = 0.059
+anchor_right = 0.059
+margin_left = -0.0240002
+margin_right = 111.976
 margin_bottom = 40.0
 flat = true
 __meta__ = {
@@ -54,7 +56,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitButton" type="Button" parent="Exit"]
+[node name="Button" type="Button" parent="Exit"]
 margin_left = 8.0
 margin_right = 120.0
 margin_bottom = 40.0
@@ -62,9 +64,9 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SceneTimer" type="Timer" parent="."]
-one_shot = true
-[connection signal="pressed" from="Start/StartButton" to="Start" method="_on_StartButton_pressed"]
-[connection signal="pressed" from="Exit/ExitButton" to="Exit" method="_on_ExitButton_pressed"]
-[connection signal="timeout" from="SceneTimer" to="Start" method="_on_SceneTimer_timeout"]
+[connection signal="mouse_entered" from="Start/Button" to="Start" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Start/Button" to="Start" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Start/Button" to="Start" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Exit/Button" to="Exit" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Exit/Button" to="Exit" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Exit/Button" to="Exit" method="_on_Button_pressed"]

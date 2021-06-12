@@ -1,30 +1,15 @@
 extends RichTextLabel
 
-
 onready var timer = get_node("../SceneTimer")
 
-# true = start | false = exit
-var command = false
-
-func _on_StartButton_pressed():
-	fade_text_change()
-	timer.start(.75)
-	command = true
-
-func _on_ExitButton_pressed():
-	fade_text_change()
-	timer.start(.75)
-	command = false
-
-func fade_text_change():
-	self.parse_bbcode("[center][shake rate=10 level=20]" + text + "[/shake][/center]")
-
-
-func _on_SceneTimer_timeout():
-	if command:
+func _on_Button_pressed():
+	if self.name == "Start":
 		get_tree().change_scene("res://Levels/Level1.tscn")
-	else:
+	elif self.name == "Exit":
 		get_tree().quit()
 
+func _on_Button_mouse_entered():
+	self.parse_bbcode("[center][shake rate=10 level=20]" + text + "[/shake][/center]")
 
-
+func _on_Button_mouse_exited():
+	self.parse_bbcode("[center]" + text + "[/center]")
