@@ -4,7 +4,7 @@ extends RichTextLabel
 onready var timer = get_node("../SceneTimer")
 
 # true = start | false = exit
-var command = true
+var command = false
 
 func _on_StartButton_pressed():
 	fade_text_change()
@@ -22,7 +22,7 @@ func fade_text_change():
 
 func _on_SceneTimer_timeout():
 	if command:
-		get_tree().change_scene("res://Main.tscn")
+		get_tree().change_scene("res://Levels/Level1.tscn")
 	else:
 		get_tree().quit()
 
