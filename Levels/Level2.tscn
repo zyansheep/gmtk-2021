@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Interactives/Sign.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player 2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Interactives/Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://Level.gd" type="Script" id=5]
+[ext_resource path="res://WorldMap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player 1.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -7.55099, 59.4641, 7.55099, -59.4641, -856.255, 91.1364, -97.5182, 7.66728, 97.5182, -7.66728, -569.332, 444.015, -90.3025, -1.7677, 90.3025, 1.7677, -247.268, 64.7704, -89.9759, -68.9535, 89.9759, 68.9535, -35.3625, 369.175, -97.8366, 51.2605, 97.8366, -51.2605, 295.951, 365.811, -11.3265, 61.3518, 11.3265, -61.3518, 524.674, 5.06671, 117.898, 2.71223, -117.898, -2.71223, 473.38, -185.817, 120.816, -61.3518, -120.816, 61.3518, 144.859, -275.681, -30.1606, -21.4299, 30.1606, 21.4299, 70.2935, -49.1515, -42.463, 4.36535, 42.463, -4.36535, 166.569, -13.2842, -10.3181, 20.6362, 10.3181, -20.6362, 245.854, -44.4321, 15.4772, 18.2551, -15.4772, -18.2551, 260.012, -122.774, 36.1134, -11.9055, -36.1134, 11.9055, 166.424, -152.578 )
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Player 1" parent="." instance=ExtResource( 7 )]
+position = Vector2( 164.747, 70.4543 )
+
+[node name="Player 2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 69.6597, 72.3084 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 156.75, 91.2693 )
+current = true
+script = ExtResource( 4 )
+
+[node name="CameraPath" type="Path2D" parent="Camera2D"]
+visible = false
+position = Vector2( -158.68, -93.8274 )
+curve = SubResource( 1 )
+
+[node name="WorldMap" parent="." instance=ExtResource( 6 )]
+collision_layer = 3
+collision_mask = 3
+tile_data = PoolIntArray( -327672, 5, 0, -327671, 5, 0, -327669, 5, 0, 131084, 4, 0, 524206, 2, 1, 786432, 2, 0, 786433, 2, 1, 786434, 2, 1, 786435, 2, 1, 786436, 2, 1, 786437, 2, 1, 786438, 2, 1, 786439, 2, 1, 786440, 2, 1, 786441, 2, 1, 786442, 2, 1, 786443, 2, 1, 786444, 2, 1, 786445, 2, 1, 786446, 2, 1, 786447, 2, 1, 786448, 2, 1, 786449, 2, 1, 786450, 2, 2 )
+
+[node name="Sign" parent="." instance=ExtResource( 1 )]
+position = Vector2( 149.546, 188.995 )
+Text = "This is a sign"
+
+[node name="Checkpoint" parent="." instance=ExtResource( 3 )]
+position = Vector2( 282.189, 171.094 )

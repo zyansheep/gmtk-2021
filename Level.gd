@@ -16,6 +16,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Input.is_key_pressed(KEY_R):
+		get_tree().reload_current_scene();
+	
 	if Input.is_action_just_pressed("game_player_join"):
 		# Hide Kinematic Bodies
 		$"Player 1".visible = false;

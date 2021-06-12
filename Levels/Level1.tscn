@@ -1,19 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Interactives/Sign.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player 1.gd" type="Script" id=2]
+[ext_resource path="res://Player 1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Interactives/Checkpoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Camera2D.gd" type="Script" id=4]
-[ext_resource path="res://Levels/Level1.gd" type="Script" id=5]
+[ext_resource path="res://Level.gd" type="Script" id=5]
 [ext_resource path="res://WorldMap.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/PlayerOne.png" type="Texture" id=7]
-[ext_resource path="res://Assets/PlayerTwo.png" type="Texture" id=8]
+[ext_resource path="res://Player 2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Level2.tscn" type="PackedScene" id=8]
 
-[sub_resource type="CircleShape2D" id=1]
-
-[sub_resource type="CircleShape2D" id=2]
-
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( -7.55099, 59.4641, 7.55099, -59.4641, -856.255, 91.1364, -97.5182, 7.66728, 97.5182, -7.66728, -569.332, 444.015, -90.3025, -1.7677, 90.3025, 1.7677, -247.268, 64.7704, -89.9759, -68.9535, 89.9759, 68.9535, -35.3625, 369.175, -97.8366, 51.2605, 97.8366, -51.2605, 295.951, 365.811, -11.3265, 61.3518, 11.3265, -61.3518, 524.674, 5.06671, 117.898, 2.71223, -117.898, -2.71223, 473.38, -185.817, 120.816, -61.3518, -120.816, 61.3518, 144.859, -275.681, -30.1606, -21.4299, 30.1606, 21.4299, 70.2935, -49.1515, -42.463, 4.36535, 42.463, -4.36535, 166.569, -13.2842, -10.3181, 20.6362, 10.3181, -20.6362, 245.854, -44.4321, 15.4772, 18.2551, -15.4772, -18.2551, 260.012, -122.774, 36.1134, -11.9055, -36.1134, 11.9055, 166.424, -152.578 )
 }
@@ -21,36 +17,11 @@ _data = {
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="Player 1" type="KinematicBody2D" parent="."]
-position = Vector2( 172.355, -221.326 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Player 1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 165.028, -224.296 )
 
-[node name="Icon" type="Sprite" parent="Player 1"]
-texture = ExtResource( 7 )
-
-[node name="Collision" type="CollisionShape2D" parent="Player 1"]
-z_index = -1
-shape = SubResource( 1 )
-
-[node name="Player 2" type="KinematicBody2D" parent="."]
-position = Vector2( 165.189, -119.664 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-left_action = "ui_left"
-right_action = "ui_right"
-jump_action = "ui_up"
-
-[node name="Icon" type="Sprite" parent="Player 2"]
-texture = ExtResource( 8 )
-
-[node name="Collision" type="CollisionShape2D" parent="Player 2"]
-z_index = -1
-shape = SubResource( 2 )
+[node name="Player 2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 165.817, -107.48 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 158.68, 93.8274 )
@@ -60,7 +31,7 @@ script = ExtResource( 4 )
 [node name="CameraPath" type="Path2D" parent="Camera2D"]
 visible = false
 position = Vector2( -158.68, -93.8274 )
-curve = SubResource( 3 )
+curve = SubResource( 1 )
 
 [node name="WorldMap" parent="." instance=ExtResource( 6 )]
 collision_layer = 3
@@ -73,3 +44,4 @@ Text = "Press <SPACE> to Anchor"
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( -871.564, 121.865 )
+next_level = ExtResource( 8 )

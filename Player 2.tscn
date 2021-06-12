@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player 1.gd" type="Script" id=1]
+[ext_resource path="res://Assets/PlayerTwo.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Player 2" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+left_action = "ui_left"
+right_action = "ui_right"
+jump_action = "ui_up"
+
+[node name="Icon" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+z_index = -1
+shape = SubResource( 1 )
