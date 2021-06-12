@@ -49,6 +49,7 @@ custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]Exit[/center]"
 text = "Exit"
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -61,4 +62,9 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SceneTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="pressed" from="Start/StartButton" to="Start" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Exit/ExitButton" to="Exit" method="_on_ExitButton_pressed"]
+[connection signal="timeout" from="SceneTimer" to="Start" method="_on_SceneTimer_timeout"]
