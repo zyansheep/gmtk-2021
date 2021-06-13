@@ -14,7 +14,7 @@
 [ext_resource path="res://Interactives/Jump Pad.tscn" type="PackedScene" id=12]
 [ext_resource path="res://ShowLevel.tscn" type="PackedScene" id=13]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2098.75, 2844.71 )
 
 [node name="Game" type="Node2D"]
@@ -60,7 +60,7 @@ collision_layer = 2147483649
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="OutOfBounds"]
 visible = false
 position = Vector2( -28.8989, -1489.33 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Anchor Pad" parent="." instance=ExtResource( 10 )]
 position = Vector2( 167.068, -86.7494 )

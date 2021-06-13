@@ -8,8 +8,8 @@ var pathNumber = 0
 func _process(delta):
 	path = nav.points
 	var remaining_distance = position.distance_to(path[pathNumber])
-	if 1 <= remaining_distance:
-		self.position += position.direction_to(path[pathNumber])
+	if 4 <= remaining_distance:
+		self.position += position.direction_to(path[pathNumber]) * 4
 	else:
 		if timer.is_stopped():
 			timer.start(.1)
