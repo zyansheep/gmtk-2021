@@ -1,0 +1,90 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Interactives/Sign.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player 2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Interactives/Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://Level.gd" type="Script" id=5]
+[ext_resource path="res://WorldMap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player 1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Interactives/Jump Pad.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Interactives/Anchor Pad.tscn" type="PackedScene" id=10]
+[ext_resource path="res://OneWayPlatform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Submenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 727.086, 775.487 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 156.75, 91.2693 )
+current = true
+script = ExtResource( 4 )
+
+[node name="CameraPath" type="Path2D" parent="Camera2D"]
+visible = false
+position = Vector2( -158.68, -93.8274 )
+curve = SubResource( 1 )
+
+[node name="WorldMap" parent="." instance=ExtResource( 6 )]
+collision_layer = 3
+collision_mask = 3
+tile_data = PoolIntArray( -3997689, 0, 0, -3997688, 0, 0, -3997687, 0, 0, -3997686, 0, 0, -3997685, 0, 0, -3997684, 0, 0, -3997683, 0, 0, -3997682, 0, 0, -3997681, 0, 0, -3997680, 0, 0, -3997679, 0, 0, -3997678, 0, 0, -3997677, 0, 0, -3997676, 0, 0, -3932153, 1, 0, -3932140, 3, 0, -3866617, 1, 0, -3866604, 3, 65536, -3801081, 1, 0, -3801068, 3, 65536, -3735545, 1, 0, -3735532, 3, 65536, -3670009, 1, 0, -3669996, 3, 65536, -3604473, 1, 0, -3604460, 3, 65536, -3538937, 1, 0, -3538924, 3, 65536, -3473401, 1, 0, -3473388, 3, 65536, -3407865, 1, 0, -3407852, 3, 65536, -3276812, 2, 0, -3276811, 2, 1, -3276810, 2, 1, -3276809, 2, 1, -3276808, 2, 1, -3276807, 2, 2, -3342336, 0, 0, -3342335, 0, 0, -3342334, 0, 0, -3342333, 0, 0, -3342332, 0, 0, -3342331, 0, 0, -3342330, 0, 0, -3342329, 536870913, 0, -3342316, 3, 65536, -3276793, 3, 0, -3276780, 3, 65536, -3211257, 3, 65536, -3211244, 3, 65536, -3145721, 3, 65536, -3145708, 3, 65536, -3080185, 3, 65536, -3080172, 3, 65536, -3014649, 3, 65536, -3014636, 3, 65536, -2949113, 3, 65536, -2949100, 3, 65536, -2883577, 3, 65536, -2883564, 3, 65536, -2818041, 3, 65536, -2818028, 3, 65536, -2752505, 3, 65536, -2752492, 3, 65536, -2686969, 3, 65536, -2686956, 3, 65536, -2621433, 3, 131072, -2621420, 3, 65536, -2490375, 2, 0, -2490374, 2, 1, -2490373, 2, 1, -2490372, 2, 1, -2490371, 2, 1, -2490370, 2, 1, -2490369, 2, 1, -2555904, 2, 1, -2555903, 2, 1, -2555902, 2, 1, -2555901, 2, 1, -2555900, 2, 1, -2555899, 2, 2, -2555897, 1610612736, 0, -2555884, 3, 65536, -2490348, 3, 65536, -2424812, 3, 65536, -2359276, 3, 131072, -2293759, 3, 0, -2293740, 1610612736, 0, -2228223, 3, 65536, -2162687, 3, 65536, -2097151, 3, 65536, -2031615, 3, 65536, -1966079, 3, 131072, -1900543, 1610612736, 0 )
+
+[node name="Sign" parent="." instance=ExtResource( 1 )]
+position = Vector2( -171.95, -839.754 )
+Text = "Underground..."
+
+[node name="Checkpoint" parent="." instance=ExtResource( 3 )]
+position = Vector2( 144.624, -532.015 )
+
+[node name="Player 1" parent="." instance=ExtResource( 7 )]
+position = Vector2( -151.148, -840.46 )
+
+[node name="Player 2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 82.8951, -838.458 )
+
+[node name="OneWayPlatform" parent="." instance=ExtResource( 11 )]
+position = Vector2( 143.265, -503.549 )
+scale = Vector2( 2, 1 )
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="jump pads" type="Node2D" parent="."]
+
+[node name="Jump Pad" parent="jump pads" instance=ExtResource( 9 )]
+position = Vector2( -150.031, -819.676 )
+
+[node name="Jump Pad2" parent="jump pads" instance=ExtResource( 9 )]
+position = Vector2( 105.387, -837.37 )
+rotation = -1.5708
+
+[node name="Jump Pad3" parent="jump pads" instance=ExtResource( 9 )]
+position = Vector2( 147.387, -983.37 )
+
+[node name="anchor pads" type="Node2D" parent="."]
+
+[node name="Anchor Pad" parent="anchor pads" instance=ExtResource( 10 )]
+position = Vector2( 219.989, -983.09 )
+
+[node name="Background" parent="." instance=ExtResource( 8 )]
+
+[node name="Submenu" parent="." instance=ExtResource( 12 )]
+
+[node name="OutOfBounds" parent="." instance=ExtResource( 13 )]
+position = Vector2( 107.878, -624.794 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBounds"]
+visible = false
+shape = SubResource( 2 )
+
+[editable path="OutOfBounds"]
