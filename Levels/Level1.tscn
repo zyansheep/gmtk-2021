@@ -54,6 +54,7 @@ next_level = ExtResource( 8 )
 [node name="Background" parent="." instance=ExtResource( 9 )]
 
 [node name="OutOfBounds" parent="." instance=ExtResource( 10 )]
+collision_layer = 2147483649
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="OutOfBounds"]
 shape = SubResource( 2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Interactives/Sign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player 2.tscn" type="PackedScene" id=2]
@@ -11,11 +11,15 @@
 [ext_resource path="res://Interactives/Jump Pad.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Interactives/Anchor Pad.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Levels/Level3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( -7.55099, 59.4641, 7.55099, -59.4641, -856.255, 91.1364, -97.5182, 7.66728, 97.5182, -7.66728, -569.332, 444.015, -90.3025, -1.7677, 90.3025, 1.7677, -247.268, 64.7704, -89.9759, -68.9535, 89.9759, 68.9535, -35.3625, 369.175, -97.8366, 51.2605, 97.8366, -51.2605, 295.951, 365.811, -11.3265, 61.3518, 11.3265, -61.3518, 524.674, 5.06671, 117.898, 2.71223, -117.898, -2.71223, 473.38, -185.817, 120.816, -61.3518, -120.816, 61.3518, 144.859, -275.681, -30.1606, -21.4299, 30.1606, 21.4299, 70.2935, -49.1515, -42.463, 4.36535, 42.463, -4.36535, 166.569, -13.2842, -10.3181, 20.6362, 10.3181, -20.6362, 245.854, -44.4321, 15.4772, 18.2551, -15.4772, -18.2551, 260.012, -122.774, 36.1134, -11.9055, -36.1134, 11.9055, 166.424, -152.578 )
 }
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1297.45, 1098.42 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
@@ -55,3 +59,9 @@ next_level = ExtResource( 11 )
 position = Vector2( -450.779, -178.935 )
 
 [node name="Anchor Pad" parent="." instance=ExtResource( 10 )]
+
+[node name="OutOfBounds" parent="." instance=ExtResource( 12 )]
+position = Vector2( -808.781, 100.006 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBounds"]
+shape = SubResource( 2 )
