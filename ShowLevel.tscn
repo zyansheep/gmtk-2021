@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ShowLevel.gd" type="Script" id=2]
+
+[node name="ShowLevelCamera" type="Node2D"]
+
+[node name="Node2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="Node2D"]
+
+[node name="PathTimer" type="Timer" parent="Node2D"]
+one_shot = true
+[connection signal="timeout" from="Node2D/PathTimer" to="Node2D" method="_on_PathTimer_timeout"]
