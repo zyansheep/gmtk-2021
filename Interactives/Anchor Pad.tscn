@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/anchorpad.png" type="Texture" id=1]
 [ext_resource path="res://Interactives/Anchor Pad.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "Joined"
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Jump Pad/Particles2D:process_material:color")
@@ -57,7 +57,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Not Joined"
-anims/Joined = SubResource( 5 )
+anims/Joined = SubResource( 1 )
 "anims/Not Joined" = SubResource( 2 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
@@ -77,4 +77,3 @@ position = Vector2( -1.41263e-05, -1.50169 )
 scale = Vector2( 2.64248, 1 )
 texture = ExtResource( 1 )
 [connection signal="body_entered" from="." to="." method="_on_Anchor_Pad_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Anchor_Pad_body_exited"]

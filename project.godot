@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Game"
 run/main_scene="res://Menu.tscn"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=320
@@ -138,7 +142,14 @@ escape={
  ]
 }
 
+[physics]
+
+common/physics_fps=120
+
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
 quality/2d/use_pixel_snap=true
+quality/depth/hdr.mobile=true
 environment/default_environment="res://default_env.tres"

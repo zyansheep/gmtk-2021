@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Interactives/Sign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player 2.tscn" type="PackedScene" id=2]
@@ -8,12 +8,11 @@
 [ext_resource path="res://WorldMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player 1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Interactives/Jump Pad.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Interactives/Anchor Pad.tscn" type="PackedScene" id=10]
-[ext_resource path="res://OneWayPlatform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/Roll.gd" type="Script" id=11]
 [ext_resource path="res://Submenu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Levels/LevelWin.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Interactives/FrostyButton.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -21,7 +20,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 727.086, 775.487 )
+extents = Vector2( 5367.26, 2510.41 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
@@ -39,51 +38,48 @@ curve = SubResource( 1 )
 [node name="WorldMap" parent="." instance=ExtResource( 6 )]
 collision_layer = 3
 collision_mask = 3
-tile_data = PoolIntArray( -3997689, 0, 0, -3997688, 0, 0, -3997687, 0, 0, -3997686, 0, 0, -3997685, 0, 0, -3997684, 0, 0, -3997683, 0, 0, -3997682, 0, 0, -3997681, 0, 0, -3997680, 0, 0, -3997679, 0, 0, -3997678, 0, 0, -3997677, 0, 0, -3997676, 0, 0, -3932153, 1, 0, -3932140, 3, 0, -3866617, 1, 0, -3866604, 3, 65536, -3801081, 1, 0, -3801068, 3, 65536, -3735545, 1, 0, -3735532, 3, 65536, -3670009, 1, 0, -3669996, 3, 65536, -3604473, 1, 0, -3604460, 3, 65536, -3538937, 1, 0, -3538924, 3, 65536, -3473401, 1, 0, -3473388, 3, 65536, -3407865, 1, 0, -3407852, 3, 65536, -3276812, 2, 0, -3276811, 2, 1, -3276810, 2, 1, -3276809, 2, 1, -3276808, 2, 1, -3276807, 2, 2, -3342336, 0, 0, -3342335, 0, 0, -3342334, 0, 0, -3342333, 0, 0, -3342332, 0, 0, -3342331, 0, 0, -3342330, 0, 0, -3342329, 536870913, 0, -3342316, 3, 131072 )
+tile_data = PoolIntArray( 720889, 0, 0, 720890, 0, 0, 720891, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 1769506, 0, 0, 1769507, 0, 0, 1769508, 0, 0, 1769509, 0, 0, 1769510, 0, 0, 1769511, 0, 0, 1769512, 0, 0, 1769513, 0, 0, 1769514, 0, 0, 2031701, 2, 0, 2031702, 2, 1, 2031703, 2, 1, 2031704, 2, 1, 2031705, 2, 1, 2031706, 2, 1, 2031707, 2, 1, 2031708, 2, 1, 2031709, 2, 1, 2031710, 2, 2 )
 
 [node name="Sign" parent="." instance=ExtResource( 1 )]
-position = Vector2( -171.95, -839.754 )
-Text = "Underground..."
+position = Vector2( 162.255, 152.203 )
+Text = "Congrats!
+You Win!"
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
-position = Vector2( 144.624, -532.015 )
-next_level = ExtResource( 14 )
+position = Vector2( 2619.86, 81.2327 )
 
 [node name="Player 1" parent="." instance=ExtResource( 7 )]
-position = Vector2( -151.148, -840.46 )
+position = Vector2( 95.5727, 147.657 )
 
 [node name="Player 2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 82.8951, -838.458 )
-
-[node name="OneWayPlatform" parent="." instance=ExtResource( 11 )]
-position = Vector2( 143.265, -503.549 )
-scale = Vector2( 2, 1 )
+position = Vector2( 218.242, 148.628 )
 
 [node name="Spikes" type="Node2D" parent="."]
 
 [node name="jump pads" type="Node2D" parent="."]
 
-[node name="Jump Pad" parent="jump pads" instance=ExtResource( 9 )]
-position = Vector2( -150.031, -819.676 )
-
-[node name="Jump Pad2" parent="jump pads" instance=ExtResource( 9 )]
-position = Vector2( 328.196, -998.443 )
-rotation = -1.5708
-
 [node name="anchor pads" type="Node2D" parent="."]
 
 [node name="Anchor Pad" parent="anchor pads" instance=ExtResource( 10 )]
-position = Vector2( 51.6197, -823.7 )
+position = Vector2( 613.546, 425.11 )
 
 [node name="Background" parent="." instance=ExtResource( 8 )]
 
 [node name="Submenu" parent="." instance=ExtResource( 12 )]
 
 [node name="OutOfBounds" parent="." instance=ExtResource( 13 )]
-position = Vector2( 107.878, -624.794 )
+position = Vector2( 103.383, -176.8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBounds"]
 visible = false
+position = Vector2( -192.333, 362.039 )
 shape = SubResource( 2 )
+
+[node name="FrostyButton" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1429.97, 495.322 )
+
+[node name="Order 69" type="Node2D" parent="FrostyButton"]
+script = ExtResource( 11 )
+[connection signal="pressed" from="FrostyButton" to="FrostyButton/Order 69" method="_on_FrostyButton_pressed"]
 
 [editable path="OutOfBounds"]

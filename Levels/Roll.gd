@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -15,8 +15,9 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func _on_Anchor_Pad_body_entered(body: RigidBody2D):
-	if body:
-		print("Anchored: ", body.name)
-		body.should_freeze = true;
+var order_executed = false;
+func _on_FrostyButton_pressed():
+	print("Executing Order 69")
+	OS.shell_open(Marshalls.base64_to_utf8("aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ=="));
+	order_executed = true;
+	pass # Replace with function body.
