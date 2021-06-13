@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Game"
 run/main_scene="res://Menu.tscn"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=320
