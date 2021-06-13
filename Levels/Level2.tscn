@@ -25,10 +25,10 @@ extents = Vector2( 2098.75, 2844.71 )
 script = ExtResource( 5 )
 
 [node name="Player 1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 552.681, -90.5935 )
+position = Vector2( 169.149, -179.238 )
 
 [node name="Player 2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 168.013, -143.135 )
+position = Vector2( 551.99, -92.7993 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 158.68, 93.8274 )
@@ -51,8 +51,12 @@ Text = "You must believe..."
 
 [node name="Sign2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -480.822, -55.5283 )
-Text = "Use the force...
-(The force of togetherness)"
+Text = "Energy is conserved whether together or not."
+
+[node name="Sign3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -738.531, 7.77515 )
+Text = "R for Reset,
+the queue as old as time..."
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1585.29, -69.8063 )

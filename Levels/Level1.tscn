@@ -45,7 +45,12 @@ tile_data = PoolIntArray( -1310724, 3, 0, -1245188, 3, 65536, -1179652, 3, 65536
 
 [node name="Sign" parent="." instance=ExtResource( 1 )]
 position = Vector2( 187.737, -100.056 )
-Text = "Press <SPACE> to Anchor"
+Text = "Hold <SPACE> to Anchor"
+
+[node name="Sign2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -306.89, 139.523 )
+Text = "Out of sight, but in the mind
+<"
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( -871.564, 121.865 )
@@ -57,4 +62,5 @@ next_level = ExtResource( 8 )
 collision_layer = 2147483649
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="OutOfBounds"]
+visible = false
 shape = SubResource( 2 )
