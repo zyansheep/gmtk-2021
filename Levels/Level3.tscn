@@ -20,7 +20,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 744, 32 )
+extents = Vector2( 727.086, 775.487 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
@@ -81,9 +81,10 @@ position = Vector2( 219.989, -983.09 )
 [node name="Submenu" parent="." instance=ExtResource( 12 )]
 
 [node name="OutOfBounds" parent="." instance=ExtResource( 13 )]
+position = Vector2( 107.878, -624.794 )
 
-[node name="CollisionShape2D" parent="OutOfBounds" index="0"]
-position = Vector2( 0, -32 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBounds"]
+visible = false
 shape = SubResource( 2 )
 
 [editable path="OutOfBounds"]

@@ -28,7 +28,7 @@ tracks/0/keys = {
 motion_mirroring = Vector2( 1280, 720 )
 
 [node name="BlackBackground" type="Sprite" parent="ParallaxBackground/Base"]
-scale = Vector2( 4, 4 )
+scale = Vector2( 16, 16 )
 texture = ExtResource( 1 )
 centered = false
 
