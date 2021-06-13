@@ -6,6 +6,7 @@ onready var timer = $PathTimer
 var pathNumber = 0
 
 func _process(delta):
+	path = nav.points
 	var remaining_distance = position.distance_to(path[pathNumber])
 	if 1 <= remaining_distance:
 		self.position += position.direction_to(path[pathNumber])

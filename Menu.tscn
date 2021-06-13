@@ -17,35 +17,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="RichTextLabel" parent="."]
-margin_left = 43.6381
-margin_top = 40.345
-margin_right = 278.638
-margin_bottom = 80.345
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "[center]Temple Of Zod[/center]"
-text = "Temple Of Zod"
-scroll_active = false
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
 [node name="Start" type="RichTextLabel" parent="."]
-margin_left = 91.9955
-margin_top = 102.764
-margin_right = 227.996
-margin_bottom = 142.764
+margin_left = 96.0
+margin_top = 16.0
+margin_right = 232.0
+margin_bottom = 56.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center]ENTER[/center]"
-text = "ENTER"
+bbcode_text = "[center]START[/center]"
+text = "START"
 scroll_active = false
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -61,6 +44,35 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Exit" type="RichTextLabel" parent="."]
+margin_left = 96.0
+margin_top = 128.0
+margin_right = 232.0
+margin_bottom = 168.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Exit[/center]"
+text = "Exit"
+scroll_active = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Exit"]
+margin_left = 8.0
+margin_right = 120.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="Start/Button" to="Start" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="Start/Button" to="Start" method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="Start/Button" to="Start" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Exit/Button" to="Exit" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Exit/Button" to="Exit" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Exit/Button" to="Exit" method="_on_Button_pressed"]

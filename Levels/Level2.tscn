@@ -12,11 +12,7 @@
 [ext_resource path="res://Interactives/Anchor Pad.tscn" type="PackedScene" id=10]
 [ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Interactives/Jump Pad.tscn" type="PackedScene" id=12]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( -7.55099, 59.4641, 7.55099, -59.4641, -856.255, 91.1364, -97.5182, 7.66728, 97.5182, -7.66728, -569.332, 444.015, -90.3025, -1.7677, 90.3025, 1.7677, -247.268, 64.7704, -89.9759, -68.9535, 89.9759, 68.9535, -35.3625, 369.175, -97.8366, 51.2605, 97.8366, -51.2605, 295.951, 365.811, -11.3265, 61.3518, 11.3265, -61.3518, 524.674, 5.06671, 117.898, 2.71223, -117.898, -2.71223, 473.38, -185.817, 120.816, -61.3518, -120.816, 61.3518, 144.859, -275.681, -30.1606, -21.4299, 30.1606, 21.4299, 70.2935, -49.1515, -42.463, 4.36535, 42.463, -4.36535, 166.569, -13.2842, -10.3181, 20.6362, 10.3181, -20.6362, 245.854, -44.4321, 15.4772, 18.2551, -15.4772, -18.2551, 260.012, -122.774, 36.1134, -11.9055, -36.1134, 11.9055, 166.424, -152.578 )
-}
+[ext_resource path="res://ShowLevel.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2098.75, 2844.71 )
@@ -32,13 +28,7 @@ position = Vector2( 551.99, -92.7993 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 158.68, 93.8274 )
-current = true
 script = ExtResource( 4 )
-
-[node name="CameraPath" type="Path2D" parent="Camera2D"]
-visible = false
-position = Vector2( -158.68, -93.8274 )
-curve = SubResource( 1 )
 
 [node name="WorldMap" parent="." instance=ExtResource( 6 )]
 collision_layer = 3
@@ -87,3 +77,11 @@ position = Vector2( -434.451, -55.4749 )
 
 [node name="Jump Pad3" parent="." instance=ExtResource( 12 )]
 position = Vector2( -154.056, 348.982 )
+
+[node name="ShowLevelCamera" parent="." instance=ExtResource( 13 )]
+position = Vector2( 171.737, -133.573 )
+
+[node name="Line2D" parent="ShowLevelCamera/Node2D" index="0"]
+points = PoolVector2Array( -27.3114, 615.154, -580.089, 33.1074, -1680.6, 39.3381 )
+
+[editable path="ShowLevelCamera"]
