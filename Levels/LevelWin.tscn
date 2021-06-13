@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Interactives/Sign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player 2.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://WorldMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player 1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Interactives/Jump Pad.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Interactives/Anchor Pad.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Levels/Roll.gd" type="Script" id=11]
 [ext_resource path="res://Submenu.tscn" type="PackedScene" id=12]
@@ -21,7 +20,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 2917.13, 1273.76 )
+extents = Vector2( 5367.26, 2510.41 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
@@ -39,11 +38,12 @@ curve = SubResource( 1 )
 [node name="WorldMap" parent="." instance=ExtResource( 6 )]
 collision_layer = 3
 collision_mask = 3
-tile_data = PoolIntArray( 720889, 0, 0, 720890, 0, 0, 720891, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 1310804, 2, 0, 1310805, 2, 1, 1310806, 2, 1, 1310807, 2, 1, 1310808, 2, 1, 1310809, 2, 1, 1310810, 2, 1, 1310811, 2, 1, 1310812, 2, 1, 1310813, 2, 1, 1310814, 2, 2, 1376289, 1, 0, 1376290, 1, 0, 1376291, 1, 0, 1376292, 1, 0, 1376293, 1, 0, 1376294, 1, 0, 1376295, 1, 0, 1376296, 1, 0, 1376297, 1, 0 )
+tile_data = PoolIntArray( 720889, 0, 0, 720890, 0, 0, 720891, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 1769506, 0, 0, 1769507, 0, 0, 1769508, 0, 0, 1769509, 0, 0, 1769510, 0, 0, 1769511, 0, 0, 1769512, 0, 0, 1769513, 0, 0, 1769514, 0, 0, 2031701, 2, 0, 2031702, 2, 1, 2031703, 2, 1, 2031704, 2, 1, 2031705, 2, 1, 2031706, 2, 1, 2031707, 2, 1, 2031708, 2, 1, 2031709, 2, 1, 2031710, 2, 2 )
 
 [node name="Sign" parent="." instance=ExtResource( 1 )]
-position = Vector2( -171.95, -839.754 )
-Text = "Underground..."
+position = Vector2( 162.255, 152.203 )
+Text = "Congrats!
+You Win!"
 
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2619.86, 81.2327 )
@@ -58,13 +58,10 @@ position = Vector2( 218.242, 148.628 )
 
 [node name="jump pads" type="Node2D" parent="."]
 
-[node name="Jump Pad" parent="jump pads" instance=ExtResource( 9 )]
-position = Vector2( -264.393, 322.261 )
-
 [node name="anchor pads" type="Node2D" parent="."]
 
 [node name="Anchor Pad" parent="anchor pads" instance=ExtResource( 10 )]
-position = Vector2( 596.711, 332.072 )
+position = Vector2( 613.546, 425.11 )
 
 [node name="Background" parent="." instance=ExtResource( 8 )]
 
@@ -74,11 +71,12 @@ position = Vector2( 596.711, 332.072 )
 position = Vector2( 103.383, -176.8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutOfBounds"]
+visible = false
 position = Vector2( -192.333, 362.039 )
 shape = SubResource( 2 )
 
 [node name="FrostyButton" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1432.62, 319.186 )
+position = Vector2( 1429.97, 495.322 )
 
 [node name="Order 69" type="Node2D" parent="FrostyButton"]
 script = ExtResource( 11 )

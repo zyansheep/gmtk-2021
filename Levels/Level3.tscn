@@ -25,10 +25,10 @@ extents = Vector2( 1297.45, 1098.42 )
 script = ExtResource( 5 )
 
 [node name="Player 1" parent="." instance=ExtResource( 7 )]
-position = Vector2( -972.706, -17.5128 )
+position = Vector2( -906.754, -16.1885 )
 
 [node name="Player 2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -622.079, -16.3857 )
+position = Vector2( -715.312, -13.2073 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 156.75, 91.2693 )

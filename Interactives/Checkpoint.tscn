@@ -1,13 +1,63 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Interactives/Checkpoint.gd" type="Script" id=1]
 [ext_resource path="res://Assets/checkpoint.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform float bloomRadius = 1.0;
+uniform float bloomThreshold = 1.0;
+uniform float bloomIntensity = 1.0;
+
+vec3 GetBloomPixel(sampler2D tex, vec2 uv, vec2 texPixelSize) {
+	vec2 uv2 = floor(uv / texPixelSize) * texPixelSize;
+	uv2 += texPixelSize * .001;
+	vec3 tl = max(texture(tex, uv2).rgb - bloomThreshold, 0.0);
+	vec3 tr = max(texture(tex, uv2 + vec2(texPixelSize.x, 0.0)).rgb - bloomThreshold, 0.0);
+	vec3 bl = max(texture(tex, uv2 + vec2(0.0, texPixelSize.y)).rgb - bloomThreshold, 0.0);
+	vec3 br = max(texture(tex, uv2 + vec2(texPixelSize.x, texPixelSize.y)).rgb - bloomThreshold, 0.0);
+	vec2 f = fract( uv / texPixelSize );
+
+	vec3 tA = mix( tl, tr, f.x );
+	vec3 tB = mix( bl, br, f.x );
+
+	return mix( tA, tB, f.y );
+}
+
+vec3 GetBloom(sampler2D tex, vec2 uv, vec2 texPixelSize) {
+	vec3 bloom = vec3(0.0);
+	vec2 off = vec2(1) * texPixelSize * bloomRadius;
+	bloom += GetBloomPixel(tex, uv + off * vec2(-1, -1), texPixelSize * bloomRadius) * 0.292893;
+	bloom += GetBloomPixel(tex, uv + off * vec2(-1, 0), texPixelSize * bloomRadius) * 0.5;
+	bloom += GetBloomPixel(tex, uv + off * vec2(-1, 1), texPixelSize * bloomRadius) * 0.292893;
+	bloom += GetBloomPixel(tex, uv + off * vec2(0, -1), texPixelSize * bloomRadius) * 0.5;
+	bloom += GetBloomPixel(tex, uv + off * vec2(0, 0), texPixelSize * bloomRadius) * 1.0;
+	bloom += GetBloomPixel(tex, uv + off * vec2(0, 1), texPixelSize * bloomRadius) * 0.5;
+	bloom += GetBloomPixel(tex, uv + off * vec2(1, -1), texPixelSize * bloomRadius) * 0.292893;
+	bloom += GetBloomPixel(tex, uv + off * vec2(1, 0), texPixelSize * bloomRadius) * 0.5;
+	bloom += GetBloomPixel(tex, uv + off * vec2(1, 1), texPixelSize * bloomRadius) * 0.292893;
+	bloom /= 4.171573f;
+	return bloom;
+}
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	vec3 bloom = GetBloom(TEXTURE, UV, TEXTURE_PIXEL_SIZE);
+	col.rgb += bloom * bloomIntensity;
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/bloomRadius = 1.0
+shader_param/bloomThreshold = 1.0
+shader_param/bloomIntensity = 1.0
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4.15402, 4.02645 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "Pulse"
+[sub_resource type="Animation" id=3]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -15,7 +65,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 2, 4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -24,7 +74,7 @@ tracks/0/keys = {
 }
 
 [node name="Checkpoint" type="Sprite"]
-modulate = Color( 0.756453, 0.756453, 0.756453, 1 )
+material = SubResource( 5 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
@@ -33,9 +83,9 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectWin"]
 position = Vector2( 0.78745, 3.98975 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Pulse"
-anims/Pulse = SubResource( 2 )
+anims/Pulse = SubResource( 3 )
 [connection signal="body_entered" from="DetectWin" to="." method="_on_DetectWin_body_entered"]

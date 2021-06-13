@@ -2,11 +2,7 @@ extends StaticBody2D
 
 signal pressed;
 
-var FORCE_REQUIRED = 300
-
-func _process(delta):
-	if Input.is_key_pressed(KEY_P):
-		emit_signal("pressed");
+var FORCE_REQUIRED = 10
 
 func _on_Area_body_entered(body):
 	if body.name.find("Player") != -1:
