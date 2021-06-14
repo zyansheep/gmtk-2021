@@ -31,6 +31,7 @@ position = Vector2( 165.817, -107.48 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 158.68, 93.8274 )
+current = true
 script = ExtResource( 4 )
 
 [node name="CameraPath" type="Path2D" parent="Camera2D"]
@@ -67,6 +68,9 @@ shape = SubResource( 2 )
 
 [node name="ShowLevelCamera" parent="." instance=ExtResource( 11 )]
 position = Vector2( 168.38, -163.925 )
+
+[node name="Node2D" parent="ShowLevelCamera" index="0"]
+current = false
 
 [node name="Line2D" parent="ShowLevelCamera/Node2D" index="0"]
 points = PoolVector2Array( -9.98111, 225.542, -1000, 225.542 )
