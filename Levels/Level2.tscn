@@ -80,6 +80,7 @@ position = Vector2( -434.451, -55.4749 )
 position = Vector2( -154.056, 348.982 )
 
 [node name="ShowLevelCamera" parent="." instance=ExtResource( 13 )]
+visible = false
 position = Vector2( 171.737, -133.573 )
 
 [node name="Node2D" parent="ShowLevelCamera" index="0"]
